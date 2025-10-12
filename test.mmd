@@ -1,0 +1,24 @@
+    sequenceDiagram
+    participant 客户端 as Client
+    participant 服务器 as Server
+    participant 数据库 as Database
+
+    Client->>Server: 发送登录请求 (用户名, 密码)
+    activate Server
+    Server->>Database: 查询用户信息
+    activate Database
+    Database-->>Server: 返回用户信息
+    deactivate Database
+    Server->>Client: 验证凭据并发送认证令牌
+    deactivate Server
+
+    Client->>Server: 使用令牌获取数据
+    activate Server
+    Server->>Database: 获取所需数据
+    activate Database
+    Database-->>Server: 返回数据
+    deactivate Database
+    Server-->>Client: 显示数据
+    deactivate Server
+
+    Note right of Server: 这是一个简单的认证和数据获取流程。
