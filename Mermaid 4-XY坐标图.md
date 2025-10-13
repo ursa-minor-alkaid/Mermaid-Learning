@@ -1,4 +1,4 @@
-# Mermaid +2：XY坐标图
+# Mermaid 4：XY坐标图
 
 XY 坐标图（xy chart）
 
